@@ -33,3 +33,17 @@ export async function loginRestaurant(payload) {
 
   return response.data
 }
+
+export async function getRestaurantById(id) {
+  const response = await request(`/restaurants/${id}`)
+  return response.data
+}
+
+export async function updateRestaurant(id, payload) {
+  const response = await request(`/restaurants/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  })
+
+  return response.data
+}
